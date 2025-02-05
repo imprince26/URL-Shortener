@@ -2,18 +2,18 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Link2, ChartBar, Settings, Copy } from "lucide-react";
-import axios from "axios"; 
+import axios from "axios";
 
 export default function Home() {
   const [longUrl, setLongUrl] = useState("");
-  const [alias, setAlias] = useState(""); 
+  const [alias, setAlias] = useState("");
   const [shortUrl, setShortUrl] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export default function Home() {
     }
 
     try {
-      setLoading(true); 
+      setLoading(true);
       const response = await axios.post("/api/shorten", { longUrl, alias });
       setShortUrl(response.data.shortUrl);
 
@@ -34,7 +34,7 @@ export default function Home() {
       console.error("Error shortening URL:", error);
       toast.error("Failed to shorten the URL. Please try again.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -68,23 +68,13 @@ export default function Home() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="url">Enter your URL</Label>
-            <div className="flex space-x-2">
-              <Input
-                id="url"
-                placeholder="https://example.com/very-long-url"
-                value={longUrl}
-                onChange={(e) => setLongUrl(e.target.value)}
-                className="flex-1"
-              />
-              <Button type="submit" size="lg" disabled={loading}>
-                {loading ? "Shortening..." : (
-                  <>
-                    <Link2 className="mr-2 h-4 w-4" />
-                    Shorten
-                  </>
-                )}
-              </Button>
-            </div>
+            <Input
+              id="url"
+              placeholder="https://example.com/very-long-url"
+              value={longUrl}
+              onChange={(e) => setLongUrl(e.target.value)}
+              className="flex-1"
+            />
           </div>
 
           <div className="space-y-2">
@@ -95,6 +85,18 @@ export default function Home() {
               value={alias}
               onChange={(e) => setAlias(e.target.value)}
             />
+          </div>
+          <div className="space-y-2">
+            <Button type="submit" size="default" disabled={loading}>
+              {loading ? (
+                "Shortening..."
+              ) : (
+                <>
+                  <Link2 className="mr-2 h-4 w-4" />
+                  Shorten
+                </>
+              )}
+            </Button>
           </div>
         </form>
 
