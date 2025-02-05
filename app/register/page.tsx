@@ -45,17 +45,18 @@ export default function Register() {
 
   return (
     <div className="flex items-center justify-center h-[calc(100vh-64px)]">
-      <div className="w-96 border-2 shadow-2xl p-8">
-        <h1 className="text-2xl md:text-3xl text-center  font-bold mb-4 ">Register</h1>
+      <div className="w-96 border-2 rounded-xl shadow-2xl p-8">
+        <h1 className="text-2xl md:text-3xl text-center font-bold mb-4 ">
+          Register
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2 mt-5">
-            <Label htmlFor="email">
-              Email
-            </Label>
+            <Label htmlFor="email">Email</Label>
             <Input
               type="email"
               id="email"
               value={email}
+              placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -68,6 +69,7 @@ export default function Register() {
               type="password"
               id="password"
               value={password}
+              placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded"
@@ -80,16 +82,14 @@ export default function Register() {
             <Input
               type="password"
               id="confirmPassword"
+              placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded"
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full mt-4"
-          >
+          <Button type="submit" className="w-full mt-4">
             Register
           </Button>
           <p className="text-center mt-8">

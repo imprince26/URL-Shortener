@@ -32,7 +32,7 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center  h-[calc(100vh-64px)]">
-      <div className="w-96 border-2 shadow-2xl p-8">
+      <div className="w-96 border-2 rounded-xl shadow-2xl p-8">
         <h1 className="text-3xl text-center font-bold mb-4">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="space-y-3">
@@ -43,6 +43,7 @@ export default function Login() {
               type="email"
               id="email"
               value={email}
+              placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded"
@@ -56,6 +57,7 @@ export default function Login() {
               type="password"
               id="password"
               value={password}
+              placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded"
