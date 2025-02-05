@@ -45,7 +45,7 @@ export default function Register() {
 
   return (
     <div className="flex items-center justify-center h-[calc(100vh-64px)]">
-      <div className="w-96">
+      <div className="w-96 border-2 shadow-2xl p-8">
         <h1 className="text-2xl md:text-3xl text-center  font-bold mb-4 ">Register</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2 mt-5">
