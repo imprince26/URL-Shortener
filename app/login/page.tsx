@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {toast} from "sonner"
 import Link from "next/link";
 
 export default function Login() {
@@ -19,9 +20,9 @@ export default function Login() {
     });
 
     if (result?.error) {
-      // showNotification(result.error, "error");
+      toast.error(result.error);
     } else {
-      // showNotification("Login successful!", "success");
+      toast.success("Login successful!");
       router.push("/");
     }
   };

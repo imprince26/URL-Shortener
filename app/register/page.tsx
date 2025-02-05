@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useToast } from "@/hooks/use-toast";
+import {toast} from "sonner"
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ export default function Register() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      // showNotification("Passwords do not match", "error");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -31,14 +31,10 @@ export default function Register() {
       if (!res.ok) {
         throw new Error(data.error || "Registration failed");
       }
-
-      // showNotification("Registration successful! Please log in.", "success");
+      toast.success("Registration successful! Please log in.");
       router.push("/login");
     } catch (error) {
-      // showNotification(
-      //   error instanceof Error ? error.message : "Registration failed",
-      //   "error"
-      // );
+      toast.error(error instanceof Error ? error.message : "Registration failed");
     }
   };
 
