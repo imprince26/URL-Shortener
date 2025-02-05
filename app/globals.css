@@ -68,6 +68,13 @@
   }
 }
 
+::selection{
+  @apply bg-white text-black;
+}
+::-moz-selection{
+  @apply bg-white text-black;
+}
+
 .font-inter {
   font-family: 'Inter', sans-serif;
 }
