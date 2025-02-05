@@ -4,6 +4,9 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
 export default function Login() {
@@ -28,48 +31,50 @@ export default function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Login</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="email" className="block mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-3 py-2 border rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="password" className="block mb-1">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full px-3 py-2 border rounded"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-        >
-          Login
-        </button>
-        <p className="text-center mt-4">
-          Don&apos;t have an account?{" "}
-          <Link href="/register" className="text-blue-500 hover:text-blue-600">
-            Register
-          </Link>
-        </p>
-      </form>
+    <div className="flex items-center justify-center h-[calc(100vh-64px)]">
+      <div className="w-96">
+        <h1 className="text-3xl text-center font-bold mb-4">Login</h1>
+        <form onSubmit={handleSubmit} className="space-y-8">
+          <div className="space-y-3">
+            <Label htmlFor="email" className="block mb-1">
+              Email
+            </Label>
+            <Input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-3 py-2 border rounded"
+            />
+          </div>
+          <div className="space-y-3">
+            <Label htmlFor="password" className="block mb-1">
+              Password
+            </Label>
+            <Input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full px-3 py-2 border rounded"
+            />
+          </div>
+          <Button type="submit" className="w-full">
+            Login
+          </Button>
+          <p className="text-center mt-4">
+            Don&apos;t have an account?{" "}
+            <Link
+              href="/register"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              Register
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
