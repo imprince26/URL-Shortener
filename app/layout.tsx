@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Navbar } from '@/components/navbar'
+import favicon from '@/public/favicon.png'
 
 export const metadata: Metadata = {
   title: 'URL Shortener - Modern Link Management',
@@ -21,6 +22,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href='favicon.png' type="image/x-icon" />
       </head>
       <body className="min-h-screen bg-gradient-to-b from-background to-background/95 antialiased font-inter">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
