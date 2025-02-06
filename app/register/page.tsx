@@ -69,21 +69,23 @@ export default function Register() {
               Password
             </Label>
             <div className="flex">
-            <Input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-3 py-2 border rounded"
-            />
-             <Button onClick={(e) => {
-              e.preventDefault();
-              setShowPassword(!showPassword)
-             }}>
-            {showPassword ? <EyeIcon /> : <EyeOffIcon />}
-           </Button>
+              <Input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full px-3 py-2 border rounded"
+              />
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPassword(!showPassword);
+                }}
+              >
+                {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+              </Button>
             </div>
           </div>
           <div className="space-y-2">
@@ -91,21 +93,23 @@ export default function Register() {
               Confirm Password
             </Label>
             <div className="flex">
-            <Input
-              type={showConfirmPassword ? "text" : "password"}
-              id="password"
-              value={confirmPassword}
-              placeholder="Enter your password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              className="w-full px-3 py-2 border rounded"
-            />
-             <Button onClick={(e) => {
-              e.preventDefault();
-              setShowConfirmPassword(!showConfirmPassword)
-             }}>
-            {showConfirmPassword ? <EyeIcon /> : <EyeOffIcon />}
-           </Button>
+              <Input
+                type={showConfirmPassword ? "text" : "password"}
+                id="password"
+                value={confirmPassword}
+                placeholder="Enter your password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                className="w-full px-3 py-2 border rounded"
+              />
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowConfirmPassword(!showConfirmPassword);
+                }}
+              >
+                {showConfirmPassword ? <EyeIcon /> : <EyeOffIcon />}
+              </Button>
             </div>
           </div>
           <Button type="submit" className="w-full mt-4">

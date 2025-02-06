@@ -32,7 +32,6 @@ export default function Login() {
     }
   };
 
-
   return (
     <div className="flex items-center justify-center  h-[calc(100vh-64px)]">
       <div className="w-96 border-2 rounded-xl shadow-2xl p-8">
@@ -57,20 +56,23 @@ export default function Login() {
               Password
             </Label>
             <div className="flex items-center justify-between">
-            <Input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-3/4"
-            />
-             <Button onClick={(e) => { 
-                e.preventDefault();
-                setShowPassword(!showPassword)}}>
-            {showPassword ? <EyeIcon /> : <EyeOffIcon />}
-           </Button>
+              <Input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-3/4"
+              />
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPassword(!showPassword);
+                }}
+              >
+                {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+              </Button>
             </div>
           </div>
           <Button type="submit" className="w-full">
