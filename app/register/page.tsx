@@ -7,11 +7,14 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -65,8 +68,9 @@ export default function Register() {
             <Label htmlFor="password" className="block mb-1">
               Password
             </Label>
+            <div className="flex">
             <Input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               value={password}
               placeholder="Enter your password"
@@ -74,20 +78,35 @@ export default function Register() {
               required
               className="w-full px-3 py-2 border rounded"
             />
+             <Button onClick={(e) => {
+              e.preventDefault();
+              setShowPassword(!showPassword)
+             }}>
+            {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+           </Button>
+            </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="confirmPassword" className="block mb-1">
               Confirm Password
             </Label>
+            <div className="flex">
             <Input
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirm your password"
+              type={showConfirmPassword ? "text" : "password"}
+              id="password"
               value={confirmPassword}
+              placeholder="Enter your password"
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded"
             />
+             <Button onClick={(e) => {
+              e.preventDefault();
+              setShowConfirmPassword(!showConfirmPassword)
+             }}>
+            {showConfirmPassword ? <EyeIcon /> : <EyeOffIcon />}
+           </Button>
+            </div>
           </div>
           <Button type="submit" className="w-full mt-4">
             Register

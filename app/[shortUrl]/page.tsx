@@ -14,7 +14,7 @@ export default async function RedirectPage({ params }: RedirectPageProps) {
   if (urlData) {
     urlData.clicks += 1;
     await urlData.save();
-    redirect(urlData.longUrl); // Redirect using Next.js App Router
+    redirect(urlData.longUrl);
   }
 
   return <p className="text-center text-red-500">Link not found.</p>;

@@ -8,10 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,6 +31,7 @@ export default function Login() {
       router.push("/");
     }
   };
+
 
   return (
     <div className="flex items-center justify-center  h-[calc(100vh-64px)]">
@@ -53,15 +56,22 @@ export default function Login() {
             <Label htmlFor="password" className="block mb-1">
               Password
             </Label>
+            <div className="flex items-center justify-between">
             <Input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               value={password}
               placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded"
+              className="w-3/4"
             />
+             <Button onClick={(e) => { 
+                e.preventDefault();
+                setShowPassword(!showPassword)}}>
+            {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+           </Button>
+            </div>
           </div>
           <Button type="submit" className="w-full">
             Login
