@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Link2, ChartBar, Settings, Copy, X} from "lucide-react";
+import { Link2, ChartBar, Settings, Copy, X } from "lucide-react";
 import axios from "axios";
 
 export default function Home() {
@@ -37,7 +37,6 @@ export default function Home() {
       setLoading(false);
     }
   };
-
   const handleCopy = (e: React.MouseEvent<HTMLButtonElement>) => {
     navigator.clipboard.writeText(shortUrl);
     toast.success("Short URL copied to clipboard!");
@@ -111,12 +110,12 @@ export default function Home() {
               {shortUrl}
             </a>
             <div className="">
-            <Button variant="ghost" onClick={handleCopy}>
-              <Copy className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" onClick={() => setShortUrl("")}>
-            <X className="h-4 w-4" />
-            </Button>
+              <Button variant="ghost" onClick={handleCopy}>
+                <Copy className="h-4 w-4" />
+              </Button>
+              <Button variant="ghost" onClick={() => setShortUrl("")}>
+                <X className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         )}
